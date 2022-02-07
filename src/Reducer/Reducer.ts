@@ -1,13 +1,27 @@
-import { INCREMENT,DECREMENT } from "../Actions/Actions"
-let init={count:0}
-export const Counthandel=(state=init, action:any)=>
-{
-    switch (action.type)
-    {
-    case INCREMENT:
-        return Object.assign({},state,{count:action.count});
-    case DECREMENT:
-        return Object.assign({},state,{count:action.count});
-    default: return{ state}
-    }
+import user_Actions from "../Actions/Actions";
+export interface IAppState {
+  loginStatus: boolean;
+  registerUser: [];
 }
+
+const initialState: IAppState = {
+  loginStatus: false,
+  registerUser: [],
+};
+
+const User = (state: IAppState = initialState, action: any) => {
+  switch (action.type) {
+    case "loginStatus": {
+      return state.loginStatus;
+    }
+    case "registerUser": {
+      let temp: any = state.registerUser;
+      temp.push(action.payload);
+      return { ...state, registerUser: temp };
+    }
+    default:
+      return state;
+  }
+};
+
+export default User;
