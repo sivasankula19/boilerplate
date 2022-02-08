@@ -1,6 +1,26 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 
 function Register() {
+  const Name = useRef({ value: "", error: false });
+  const password = useRef({ value: "", error: false });
+  const email = useRef({ value: "", error: false });
+  const number = useRef({ value: "", error: false });
+  const confirmPassword = useRef({ value: "", error: false });
+
+  let navigate = useNavigate();
+  const registerData = [Name, password, email, number, confirmPassword];
+
+  const gotoSideBar = () => {
+    console.log("goto home page");
+    // let path = `/home`;
+    // navigate(path);
+  };
+  const goToLogin = () => {
+    let path = `/`;
+    navigate(path);
+  };
   return (
     <div>
           <div>
@@ -17,11 +37,24 @@ function Register() {
             <label className="label">Password</label>
             <input className="input" type="password" />
 
-            <button className="btn" type="submit">
+
+            <button className="btn"
+              onClick={() => {
+                gotoSideBar();
+              }}
+            >
               Register
             </button>
-            <div>
-            Already registered?<a href="/login"> Login</a>
+            <div className="login_register">
+              Have an account!
+              <div
+                onClick={() => {
+                  goToLogin();
+                }}
+                className="register_text"
+              >
+                Login Here
+              </div>
             </div>
           </form>
     </div>

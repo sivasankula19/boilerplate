@@ -7,15 +7,18 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Logout from './pages/Logout';
 import Forgotpassword from './pages/Forgotpassword';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const loginUser: any = useSelector((state: any) => state.User.loginStatus);
+
   return (
     <>
       <Router>
-        <Navbar />
+        { loginUser ? <Navbar /> : '' }
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/login' element={<Login />}  />
+          <Route path='/' element={<Login />} />
+          <Route path='/home' element={<Home />}  />
           <Route path='/register' element={<Register />} />
           <Route path='/forgotpassword' element={<Forgotpassword />} />
           <Route path='/logout' element={<Logout />} />
