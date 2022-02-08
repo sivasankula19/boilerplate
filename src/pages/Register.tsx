@@ -1,8 +1,6 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
-import { Card, CardContent } from "@material-ui/core";
 
 function Register() {
   const Name = useRef({ value: "", error: false });
@@ -24,9 +22,7 @@ function Register() {
     navigate(path);
   };
   return (
-    <div className="background">
-      <Card className="card">
-        <CardContent>
+    <div>
           <div>
             <h1>User Registration</h1>
           </div>
@@ -61,8 +57,6 @@ function Register() {
               </div>
             </div>
           </form>
-        </CardContent>
-      </Card>
     </div>
   );
 }
