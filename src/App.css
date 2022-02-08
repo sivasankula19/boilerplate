@@ -13,13 +13,35 @@
   display: flex;
   height: 90vh;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
+  padding-top: 100px;
   font-size: 3rem;
+  flex-direction: column;
+  padding-bottom: 5px;
 }
 
 .login-form {
   display: flex;
+  flex-direction: column;
 }
+.registration-form{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
+}
+.login_register {
+  padding-top: 20px;
+  font-size: 13px;
+  display: flex;
+  flex-direction: row;
+  color:red;
+}
+.register_text{
+  color:cyan;
+  padding-left: 10px;
+  cursor:pointer;
+}
+
 
 .label {
   display: block;

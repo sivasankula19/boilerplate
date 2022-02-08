@@ -1,7 +1,28 @@
-import { Card, CardContent } from "@material-ui/core";
+
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
+import { Card, CardContent } from "@material-ui/core";
 
 function Register() {
+  const Name = useRef({ value: "", error: false });
+  const password = useRef({ value: "", error: false });
+  const email = useRef({ value: "", error: false });
+  const number = useRef({ value: "", error: false });
+  const confirmPassword = useRef({ value: "", error: false });
+
+  let navigate = useNavigate();
+  const registerData = [Name, password, email, number, confirmPassword];
+
+  const gotoSideBar = () => {
+    console.log("goto home page");
+    // let path = `/home`;
+    // navigate(path);
+  };
+  const goToLogin = () => {
+    let path = `/`;
+    navigate(path);
+  };
   return (
     <div className="background">
       <Card className="card">
@@ -20,9 +41,25 @@ function Register() {
             <label className="label">Password</label>
             <input className="input" type="password" />
 
-            <button className="btn" type="submit">
-              Submit
+
+            <button className="btn"
+              onClick={() => {
+                gotoSideBar();
+              }}
+            >
+              Register
             </button>
+            <div className="login_register">
+              Have an account!
+              <div
+                onClick={() => {
+                  goToLogin();
+                }}
+                className="register_text"
+              >
+                Login Here
+              </div>
+            </div>
           </form>
         </CardContent>
       </Card>

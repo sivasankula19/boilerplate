@@ -12,7 +12,7 @@ const initialState: IAppState = {
 const User = (state: IAppState = initialState, action: any) => {
   switch (action.type) {
     case "loginStatus": {
-      return state.loginStatus;
+      return { ...state, loginStatus: action.payload };
     }
     case "registerUser": {
       let temp: any = state.registerUser;
