@@ -24,10 +24,17 @@ function Login() {
     <div className="login-form">
      <input type="text" placeholder="Enter Name" ref={UserName}/>
      <input type='password'placeholder="Enter Password"ref={UserPassword}/>
+     <div>
+      <a href="/forgotpassword">Forgot password?</a>
+    </div>
      <button onClick={()=>setValues()}>submit</button>
     </div>
     <button onClick={()=>{showData()}}>see data</button>
     <button onClick={()=>{dispatch(app_Actions.setLogOut(null))}}>LogOut</button>
+    <div>
+      Not registered yet?<a href="/register"> Register</a>
+    </div>
+    
     </div>
   );
 }

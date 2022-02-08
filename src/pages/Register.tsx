@@ -1,11 +1,8 @@
-import { Card, CardContent } from "@material-ui/core";
 import React from "react";
 
 function Register() {
   return (
-    <div className="background">
-      <Card className="card">
-        <CardContent>
+    <div>
           <div>
             <h1>User Registration</h1>
           </div>
@@ -21,11 +18,12 @@ function Register() {
             <input className="input" type="password" />
 
             <button className="btn" type="submit">
-              Submit
+              Register
             </button>
+            <div>
+            Already registered?<a href="/login"> Login</a>
+            </div>
           </form>
-        </CardContent>
-      </Card>
     </div>
   );
 }
