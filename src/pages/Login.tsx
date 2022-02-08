@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import {useRef} from 'react'
-import store from "../Store";
+import {store} from "../Store";
 import app_Actions from '../Actions/Actions'
 import { useDispatch, useSelector } from "react-redux";
 
@@ -27,6 +27,7 @@ function Login() {
      <button onClick={()=>setValues()}>submit</button>
     </div>
     <button onClick={()=>{showData()}}>see data</button>
+    <button onClick={()=>{dispatch(app_Actions.setLogOut(null))}}>LogOut</button>
     </div>
   );
 }

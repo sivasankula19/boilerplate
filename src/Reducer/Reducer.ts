@@ -19,6 +19,9 @@ const User = (state: IAppState = initialState, action: any) => {
       temp.push(action.payload);
       return { ...state, registerUser: temp };
     }
+    case 'logOut' :{
+      return initialState
+    }
     default:
       return state;
   }
