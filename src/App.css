@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 .home,
@@ -17,6 +17,41 @@
   font-size: 3rem;
 }
 
-.login-form{
+.login-form {
   display: flex;
+}
+
+.label {
+  display: block;
+  font-size: larger;
+  color: rgb(14, 13, 13);
+  padding: 5px;
+}
+
+.input {
+  font-size: larger;
+  padding: 5px;
+  margin: 2px;
+}
+.btn {
+  color: white;
+  background-color: red;
+  border-radius: 5px;
+  font-size: larger;
+  display: block;
+  padding: 5px;
+  /* margin: 10px auto; */
+}
+
+.card {
+  background-color: #fff;
+  position: relative;
+  width: 400px;
+  height: 350px;
+  margin-left: 500px;
+  padding-left: 55px;
+}
+.background{
+  background-image: url(../src/images/background.jpg);
+  height: 700px;
 }
