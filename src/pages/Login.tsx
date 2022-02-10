@@ -4,6 +4,7 @@ import {store} from "../Store";
 import app_Actions from '../Actions/Actions'
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import ReactGa from 'react-ga';
 
 function Login() {
   const UserName = useRef<HTMLInputElement>(null)
@@ -14,11 +15,11 @@ function Login() {
   useEffect(() => {
     dispatch(app_Actions.setLoginStatus(false))  
   }, [])
-  
+
   const setValues = () =>{
     if(UserName.current?.value && UserPassword.current?.value){
       console.log(UserName.current.value)
-      dispatch(app_Actions.setResgistUser({UserName :UserName.current?.value , UserPassword:UserPassword.current?.value}))
+      dispatch(app_Actions.setRegisterUser({UserName :UserName.current?.value , UserPassword:UserPassword.current?.value}))
       // store.dispatch(app_Actions.setResgistUser({UserName :UserName.current?.value , UserPassword:UserPassword.current?.value}))
       dispatch(app_Actions.setLoginStatus(true))
       let path = `/home`; 
@@ -30,6 +31,10 @@ function Login() {
     console.log('==========',result)
   }
   const goToRegister=()=>{
+    ReactGa.event({
+        category:'button',
+        action:'register button is clicked'
+    })
     let path = `/register`; 
     navigate(path);
   }
@@ -38,9 +43,16 @@ function Login() {
     <div className="login-form">
      <input type="text" placeholder="Enter Name" ref={UserName}/>
      <input type='password'placeholder="Enter Password"ref={UserPassword}/>
+     <div>
+      <a href="/forgotpassword">Forgot password?</a>
+    </div>
      <button onClick={()=>setValues()}>submit</button>
     <button onClick={()=>{showData()}}>see data</button>
     <button onClick={()=>{dispatch(app_Actions.setLogOut(null))}}>LogOut</button>
+    <div>
+      Not registered yet?<a href="/register"> Register</a>
+    </div>
+    
     </div>
    <div className="login_register">
     Not a registered User. 

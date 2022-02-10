@@ -6,9 +6,13 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Logout from './pages/Logout';
+import Forgotpassword from './pages/Forgotpassword';
 import { useSelector } from 'react-redux';
+import { GoogleAnalyticsInstance,intialiseAnalytics } from './GoogleAnalytics/GoogleAnalytics';
 
 function App() {
+  intialiseAnalytics();
+  GoogleAnalyticsInstance.googleEvent({category:'app',action:'app launched'})
   const loginUser: any = useSelector((state: any) => state.User.loginStatus);
 
   return (
@@ -19,6 +23,7 @@ function App() {
           <Route path='/' element={<Login />} />
           <Route path='/home' element={<Home />}  />
           <Route path='/register' element={<Register />} />
+          <Route path='/forgotpassword' element={<Forgotpassword />} />
           <Route path='/logout' element={<Logout />} />
         </Routes>
       </Router>
