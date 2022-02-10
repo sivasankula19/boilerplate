@@ -14,12 +14,35 @@
   height: 90vh;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
+  font-size: 1rem;
+  /* justify-content: center; */
+  padding-top: 100px;
+  flex-direction: column;
+  padding-bottom: 5px;
 }
 
 .login-form {
   display: flex;
+  flex-direction: column;
 }
+.registration-form{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
+}
+.login_register {
+  padding-top: 20px;
+  font-size: 13px;
+  display: flex;
+  flex-direction: row;
+  color:red;
+}
+.register_text{
+  color:cyan;
+  padding-left: 10px;
+  cursor:pointer;
+}
+
 
 .label {
   display: block;
@@ -34,24 +57,11 @@
   margin: 2px;
 }
 .btn {
-  color: white;
-  background-color: red;
+  color: black;
+  background-color: white;
   border-radius: 5px;
   font-size: larger;
   display: block;
   padding: 5px;
   /* margin: 10px auto; */
-}
-
-.card {
-  background-color: #fff;
-  position: relative;
-  width: 400px;
-  height: 350px;
-  margin-left: 500px;
-  padding-left: 55px;
-}
-.background{
-  background-image: url(../src/images/background.jpg);
-  height: 700px;
 }

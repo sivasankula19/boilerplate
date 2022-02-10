@@ -6,22 +6,22 @@ import * as IoIcons from 'react-icons/io5';
 export const SidebarData = [
   {
     title: 'Home',
-    path: '/',
+    path: '/home',
     icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
   },
-  {
-    title: 'Login',
-    path: '/login',
-    icon: <IoIcons.IoLogInOutline />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Register',
-    path: '/register',
-    icon: <VscIcons.VscSignIn />,
-    cName: 'nav-text'
-  },
+  // {
+  //   title: 'Login',
+  //   path: '/',
+  //   icon: <IoIcons.IoLogInOutline />,
+  //   cName: 'nav-text'
+  // },
+  // {
+  //   title: 'Register',
+  //   path: '/register',
+  //   icon: <VscIcons.VscSignIn />,
+  //   cName: 'nav-text'
+  // },
   {
     title: 'Logout',
     path: '/logout',
