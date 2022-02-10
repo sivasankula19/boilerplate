@@ -9,8 +9,11 @@ import Logout from './pages/Logout';
 import Forgotpassword from './pages/Forgotpassword';
 import { useSelector } from 'react-redux';
 import Profile from './pages/Profile';
+import { GoogleAnalyticsInstance,intialiseAnalytics } from './GoogleAnalytics/GoogleAnalytics';
 
 function App() {
+  intialiseAnalytics();
+  GoogleAnalyticsInstance.googleEvent({category:'app',action:'app launched'})
   const loginUser: any = useSelector((state: any) => state.User.loginStatus);
 
   return (
