@@ -37,7 +37,6 @@ function Register() {
             <label className="label">Password</label>
             <input className="input" type="password" />
 
-
             <button className="btn"
               onClick={() => {
                 gotoSideBar();

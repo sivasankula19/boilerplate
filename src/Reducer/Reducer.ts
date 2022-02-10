@@ -2,11 +2,13 @@ import user_Actions from "../Actions/Actions";
 export interface IAppState {
   loginStatus: boolean;
   registerUser: [];
+  loginUser: [];
 }
 
 const initialState: IAppState = {
   loginStatus: false,
   registerUser: [],
+  loginUser:[]
 };
 
 const User = (state: IAppState = initialState, action: any) => {
@@ -19,7 +21,10 @@ const User = (state: IAppState = initialState, action: any) => {
       temp.push(action.payload);
       return { ...state, registerUser: temp };
     }
-    case user_Actions.Constants.logOut :{
+    case "loginUser":{
+      return { ...state, loginUser: action.payload };
+    }
+    case 'logOut' :{
       return initialState
     }
     default:

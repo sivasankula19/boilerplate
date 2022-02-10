@@ -31,10 +31,8 @@
   padding-bottom: 30px;
 }
 .login_register {
-  padding-top: 20px;
+  /* padding-top: 20px; */
   font-size: 13px;
-  display: flex;
-  flex-direction: row;
   color:red;
 }
 .register_text{
@@ -65,3 +63,17 @@
   padding: 5px;
   /* margin: 10px auto; */
 }
+
+.card {
+  background-color: #fff;
+  position: relative;
+  width: 400px;
+  height: 350px;
+  margin-left: 500px;
+  padding-left: 55px;
+}
+.background{
+  height: 700px;
+}
+
+

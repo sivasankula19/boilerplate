@@ -1,16 +1,21 @@
 const Constants = {
     registerUser:'registerUser',
     loginStatus: 'loginStatus',
-    logOut:'logOut'
+    logOut:'logOut',
+    loginUser:'loginUser',
   }
 
   const setLoginStatus = (data: any) => ({
     type: Constants.loginStatus,
     payload: data,
   })
-  const setResgistUser =(data:any) =>({
+  const setRegisterUser =(data:any) =>({
       type: Constants.registerUser,
       payload:data,
+  })
+  const setLoginUser=(data:any)=>({
+    type: Constants.loginUser,
+    payload:data,
   })
   const setLogOut = (data:null) => (console.log("LOGOUT"),{
     type:Constants.logOut,
@@ -18,7 +23,8 @@ const Constants = {
   })
   export default {
     setLoginStatus,
-    setResgistUser,
+    setRegisterUser,
+    setLoginUser,
     setLogOut,
     Constants
   }
