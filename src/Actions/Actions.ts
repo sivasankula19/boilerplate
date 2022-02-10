@@ -19,6 +19,7 @@ const Constants = {
   export default {
     setLoginStatus,
     setResgistUser,
-    setLogOut
+    setLogOut,
+    Constants
   }
   
