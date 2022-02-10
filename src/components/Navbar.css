@@ -11,6 +11,15 @@
     font-size: 2rem;
     background: none;
   }
+  .menu-profile {
+    font-size: 2rem;
+    background: none;
+    margin-right: 2rem;
+
+  }
+  .menu-spacer {
+    flex: 1 1 auto;
+  }
   
   .nav-menu {
     background-color: #060b26;

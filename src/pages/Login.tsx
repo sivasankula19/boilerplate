@@ -44,9 +44,6 @@ function Login() {
      <button onClick={()=>setValues()}>submit</button>
     <button onClick={()=>{showData()}}>see data</button>
     <button onClick={()=>{dispatch(app_Actions.setLogOut(null))}}>LogOut</button>
-    <div>
-      Not registered yet?<a href="/register"> Register</a>
-    </div>
     
     </div>
    <div className="login_register">

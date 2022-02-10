@@ -21,10 +21,16 @@ function Register() {
     let path = `/`;
     navigate(path);
   };
+  const Attributes = {
+    Title: 'Boiler Template',
+    Header: 'User Registration',
+
+  }
   return (
     <div>
           <div>
-            <h1>User Registration</h1>
+            <h1>{Attributes.Title}</h1>
+            <h2>{Attributes.Header}</h2>
           </div>
           <form>
             {/* Labels and inputs for form data */}
@@ -36,7 +42,6 @@ function Register() {
 
             <label className="label">Password</label>
             <input className="input" type="password" />
-
 
             <button className="btn"
               onClick={() => {
