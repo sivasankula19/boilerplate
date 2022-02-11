@@ -28,9 +28,7 @@ function Register() {
         UserPassword: password.value,
       };
       dispatch(app_Actions.user_Actions.setRegisterUser(registeredUserData));
-      dispatch(app_Actions.user_Actions.setLoginUser(registeredUserData));
-      dispatch(app_Actions.user_Actions.setLoginStatus(true));
-      let path = `/home`;
+      let path = `/`;
       navigate(path);
     }
   };

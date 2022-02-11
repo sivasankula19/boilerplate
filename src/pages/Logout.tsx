@@ -13,7 +13,8 @@ function Logout() {
       loaderService.hide()
     }, 3000);
     loaderService.show()
-    dispatch(app_Actions.setLogOut(null));
+    dispatch(app_Actions.setLoginUser(null))
+    dispatch(app_Actions.setLoginStatus(false));
     let path = `/`;
     navigate(path);
   }
