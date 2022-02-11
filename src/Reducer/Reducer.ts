@@ -21,10 +21,10 @@ const User = (state: IAppState = initialState, action: any) => {
       temp.push(action.payload);
       return { ...state, registerUser: temp };
     }
-    case "loginUser":{
+    case user_Actions.Constants.loginUser:{
       return { ...state, loginUser: action.payload };
     }
-    case 'logOut' :{
+    case user_Actions.Constants.logOut :{
       return initialState
     }
     default:

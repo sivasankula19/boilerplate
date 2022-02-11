@@ -13,9 +13,12 @@ interface IContainerProps {
 const HtmlInput: ForwardRefRenderFunction<
   HTMLDivElement,
   PropsWithChildren<IContainerProps>
-> = (props: any) => {
+> = (props: any,ref:any) => {
   return (
-    <input
+    <div >
+      <div><label>{props.inputPlaceHolder}</label></div>
+    <input 
+      className="Body1"
       placeholder={props.inputPlaceHolder}
       value={props.value}
       type={props.inputType}
@@ -26,6 +29,7 @@ const HtmlInput: ForwardRefRenderFunction<
       minLength={props.minLength || 0}
       disabled={props.disabled}
     ></input>
+    </div>
   );
   // <HtmlInput inputPlaceHolder="Enter name" minLength={0} maxLength={15} inputType="text" inputOnChange={()=>InChage} required />
   //     <HtmlInput inputPlaceHolder="Enter number" minLength={0} maxLength={5} inputType="number" inputOnChange={()=>InChage} required />

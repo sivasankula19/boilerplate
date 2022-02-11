@@ -1,63 +1,91 @@
 import { Link } from "react-router-dom";
-import {useRef,useEffect} from 'react'
-import {store} from "../Store";
-import app_Actions from '../Actions/Actions'
+import { useRef, useEffect, useState } from "react";
+import app_Actions from "../Actions/Actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import ReactGa from 'react-ga';
+import ReactGa from "react-ga";
+import HtmlInput from "../components/CommonInput";
 
 function Login() {
-  const UserName = useRef<HTMLInputElement>(null)
-  const UserPassword= useRef<HTMLInputElement>(null)
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const dispatch = useDispatch();
-  let navigate = useNavigate(); 
+  let navigate = useNavigate();
+  const registeredUsers: any = useSelector((state: any) => state.User.registerUser);
   
   useEffect(() => {
-    dispatch(app_Actions.setLoginStatus(false))  
-  }, [])
+    dispatch(app_Actions.setLoginStatus(false));
+  }, []);
 
-  const setValues = () =>{
-    if(UserName.current?.value && UserPassword.current?.value){
-      console.log(UserName.current.value)
-      dispatch(app_Actions.setRegisterUser({UserName :UserName.current?.value , UserPassword:UserPassword.current?.value}))
-      // store.dispatch(app_Actions.setResgistUser({UserName :UserName.current?.value , UserPassword:UserPassword.current?.value}))
-      dispatch(app_Actions.setLoginStatus(true))
-      let path = `/home`; 
-      navigate(path);
+  const setValues = () => {
+      registeredUsers.forEach((user:any,index:any) => {
+        if(user.UserEmail===email && user.UserPassword===password){
+          dispatch(app_Actions.setLoginUser(user))
+          dispatch(app_Actions.setLoginStatus(true));
+           let path = `/home`;
+           navigate(path);         
+        }
+      })
     }
-  }
-  const result: any = useSelector((state: any) => state);
-  const showData = () => {
-    console.log('==========',result)
-  }
-  const goToRegister=()=>{
+
+  const goToRegister = () => {
     ReactGa.event({
-        category:'button',
-        action:'register button is clicked'
-    })
-    let path = `/register`; 
+      category: "button",
+      action: "register button is clicked",
+    });
+    let path = `/register`;
     navigate(path);
-  }
+  };
+  const gettingData = (data: any, type?: any) => {
+    let value = data;
+    switch (type) {
+      case "email":
+        setEmail(value);
+        break;
+      case "password":
+        setPassword(value);
+        break;
+    }
+  };
   return (
-    <div className="login">
-    <div className="login-form">
-     <input type="text" placeholder="Enter Name" ref={UserName}/>
-     <input type='password'placeholder="Enter Password"ref={UserPassword}/>
-     <div>
-      <a href="/forgotpassword">Forgot password?</a>
-    </div>
-     <button onClick={()=>setValues()}>submit</button>
-    <button onClick={()=>{showData()}}>see data</button>
-    <button onClick={()=>{dispatch(app_Actions.setLogOut(null))}}>LogOut</button>
-    <div>
-      Not registered yet?<a href="/register"> Register</a>
-    </div>
-    
-    </div>
-   <div className="login_register">
-    Not a registered User. 
-    <div onClick={()=>{goToRegister()}} className="register_text">Register Here</div>
-    </div>
+    <div className="App">
+      <div className="design">
+      <div className="heading">
+        Login
+      </div>
+        <HtmlInput
+          inputType="email"
+          inputPlaceHolder="enter email-id"
+          inputOnChange={(data: any) => {
+            gettingData(data, "email");
+          }}
+          disabled={false}
+        />
+        <HtmlInput
+          inputType="password"
+          inputPlaceHolder="enter password"
+          inputOnChange={(data: any) => {
+            gettingData(data, "password");
+          }}
+          disabled={false}
+        />
+        <div>
+          <a href="/forgotpassword">Forgot password?</a>
+        </div>
+        <button className="registerbtn" onClick={() => setValues()}>Login</button>
+      
+      <div className="login_register">
+        Not a registered User.
+        <div
+          onClick={() => {
+            goToRegister();
+          }}
+          className="register_text"
+        >
+          Register Here
+        </div>
+      </div>
+      </div>
     </div>
   );
 }

@@ -1,15 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Lato", sans-serif;
-}
-
-.home,
-.login,
-.register {
+.home{
   display: flex;
   height: 90vh;
   align-items: center;
@@ -36,7 +27,7 @@
   color:red;
 }
 .register_text{
-  color:cyan;
+  color:#25646b;
   padding-left: 10px;
   cursor:pointer;
 }
@@ -76,4 +67,51 @@
   height: 700px;
 }
 
+ /* registration page */
+ 
+ 
+.App {
+  text-align: center;
+}
+input{  
+  width: 55%;  
+  padding: 10px;  
+  margin: 5px 0px 0 0;  
+  display: inline-block;  
+  border: none;  
+  background: #f1f1f1;  
+  font-size:15px;
+  border-radius: 5px;
+  margin-bottom:10px;
+}  
+.registerbtn {  
+  border-radius: 25px;
+  background-color: #25646b;  
+  color: white;  
+  padding: 10px 20px;  
+  margin: 12px 0;  
+  border: none;  
+  cursor: pointer;  
+  width: 50%;  
+  opacity: 0.9;  
+  font-size: 20px;
+}  
+.design{
+  width:30%;
+  border:  lightgray;  
+  background-color: lightgray;  
+   margin: 50px 600px 30px 450px;
+   border-radius:10px;
+   padding-top: 20px;
+   padding-bottom:30px;
+}
+ .Body1{
+  padding-bottom: 20px;
+  }
+  .heading{
+    color:#25646b;
+    font-size:30px;
+    padding-bottom:10px;
+  }
+  
 
