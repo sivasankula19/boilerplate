@@ -8,6 +8,7 @@ import Register from './pages/Register';
 import Logout from './pages/Logout';
 import Forgotpassword from './pages/Forgotpassword';
 import { useSelector } from 'react-redux';
+import Profile from './pages/Profile';
 import { GoogleAnalyticsInstance,intialiseAnalytics } from './GoogleAnalytics/GoogleAnalytics';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path='/home' element={<Home />}  />
           <Route path='/register' element={<Register />} />
           <Route path='/forgotpassword' element={<Forgotpassword />} />
+          <Route path='/profile' element={<Profile />} />
           <Route path='/logout' element={<Logout />} />
         </Routes>
       </Router>
