@@ -16,7 +16,7 @@ const HtmlInput: ForwardRefRenderFunction<
 > = (props: any,ref:any) => {
   return (
     <div >
-      <div><label>{props.inputPlaceHolder}</label></div>
+      <div><label className="label">{props.inputPlaceHolder}</label></div>
     <input 
       className="Body1"
       placeholder={props.inputPlaceHolder}

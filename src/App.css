@@ -34,17 +34,12 @@
 
 
 .label {
-  display: block;
-  font-size: larger;
-  color: rgb(14, 13, 13);
-  padding: 5px;
+  margin-left:80px;
+  display: flex;
+  font-size: 15px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.input {
-  font-size: larger;
-  padding: 5px;
-  margin: 2px;
-}
 .btn {
   color: black;
   background-color: white;
@@ -67,7 +62,7 @@
   height: 700px;
 }
 
- /* registration page */
+ /* registration and login page */
  
  
 .App {
@@ -82,8 +77,15 @@ input{
   background: #f1f1f1;  
   font-size:15px;
   border-radius: 5px;
-  margin-bottom:10px;
+  margin-bottom:15px;
+  color:#25646b;
+ 
 }  
+input:focus{
+  outline: none !important;
+  border-color: #719ECE;
+  box-shadow: 0 0 10px #719ECE;
+}
 .registerbtn {  
   border-radius: 25px;
   background-color: #25646b;  
@@ -95,6 +97,7 @@ input{
   width: 50%;  
   opacity: 0.9;  
   font-size: 20px;
+  outline: none !important;
 }  
 .design{
   width:30%;
@@ -113,5 +116,11 @@ input{
     font-size:30px;
     padding-bottom:10px;
   }
-  
+  .error{
+    color:red;
+    font-size: 12px;
+    position: absolute;
+    margin-top:-12px;
+    margin-left:80px;
+}
 
