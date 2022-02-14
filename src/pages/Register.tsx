@@ -66,64 +66,82 @@ function Register() {
   return (
     <div className="App">
       <div className="design">
-      <div className="heading">
-        User Registration
-      </div>
-      <form >
-        {/* Labels and inputs for form data */}
-        <HtmlInput
-          inputType="text"
-          inputPlaceHolder="enter name"
-          inputOnChange={(data: any) => {
-            gettingData(data, "username");
-          }}
-          disabled={false}
-        />
-        <HtmlInput
-          inputPlaceHolder="enter email"
-          inputOnChange={(data: any) => {
-            gettingData(data, "email");
-          }}
-          disabled={false}
-        />
-        <HtmlInput
-          inputType="number"
-          inputPlaceHolder="enter phone number"
-          inputOnChange={(data: any) => {
-            gettingData(data, "number");
-          }}
-          disabled={false}
-        />
-        <HtmlInput
-          inputType="password"
-          inputPlaceHolder="enter password"
-          inputOnChange={(data: any) => {
-            gettingData(data, "password");
-          }}
-          disabled={false}
-        />
-        
-        <div><button
-        className="registerbtn"
-          onClick={(e) => {
-            gotoSideBar(e);
-          }}
-        >
-          Register
-        </button>
-        </div>
-        <div className="login_register">
-          Have an account!
-          <div
-            onClick={() => {
-              goToLogin();
+        <div className="heading">User Registration</div>
+        <form>
+          <HtmlInput
+            inputType="text"
+            inputPlaceHolder="Enter Username"
+            inputOnChange={(data: any) => {
+              gettingData(data, "username");
             }}
-            className="register_text"
-          >
-            Login Here
+            disabled={false}
+          />
+          <div className="error">
+            {!userName.error && !!userName.value ? (
+              <>Enter valid username</>
+            ) : (
+              ""
+            )}
           </div>
-        </div>
-      </form>
+          <HtmlInput
+            inputPlaceHolder="Enter Email-ID"
+            inputOnChange={(data: any) => {
+              gettingData(data, "email");
+            }}
+            disabled={false}
+          />
+          <div className="error">
+            {!email.error && !!email.value ? <>Enter valid Email</> : ""}
+          </div>
+          <HtmlInput
+            inputType="number"
+            inputPlaceHolder="Enter Phone Number"
+            inputOnChange={(data: any) => {
+              gettingData(data, "number");
+            }}
+            disabled={false}
+          />
+          <div className="error">
+            {!number.error && !!number.value ? <>Enter valid Number</> : ""}
+          </div>
+          <HtmlInput
+            inputType="password"
+            inputPlaceHolder="Enter Password"
+            inputOnChange={(data: any) => {
+              gettingData(data, "password");
+            }}
+            disabled={false}
+          />
+          <div className="error">
+            {!password.error && !!password.value ? (
+              <>Enter Strong Password</>
+            ) : (
+              ""
+            )}
+          </div>
+
+          <div>
+            <button
+              className="registerbtn"
+              onClick={(e) => {
+                gotoSideBar(e);
+              }}
+            >
+              Register
+            </button>
+          </div>
+          <div className="login_register">
+            Have an account!
+            <div
+              onClick={() => {
+                goToLogin();
+              }}
+              className="register_text"
+            >
+              Login Here
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   );
