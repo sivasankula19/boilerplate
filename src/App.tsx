@@ -20,7 +20,9 @@ function App() {
     <>
       <Router>
         { loginUser ? <Navbar /> : '' }
-        <Routes>
+        {/* to check working of error boundary comment above line and uncomment below line  */}
+        {/* { loginUser1 ? <Navbar /> : '' }   */}
+      <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/home' element={<Home />}  />
           <Route path='/register' element={<Register />} />
