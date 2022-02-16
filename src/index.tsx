@@ -9,12 +9,15 @@ import {persistor, store} from '../src/Store/index'
 import { PersistGate } from 'redux-persist/integration/react';
 import Loader from './Loader/Loader';
 // import { PersistGate } from 'redux-persist/integration/react'
+import ErrorBoundary from './components/ErrorBoundary'
 
 ReactDOM.render(
   <React.StrictMode>
      <Provider store={store}>
        <PersistGate loading={null} persistor={persistor}>
-        <App />
+        <ErrorBoundary>
+          <App />
+        </ErrorBoundary>
         <Loader />
       </PersistGate>
       </Provider>
