@@ -1,0 +1,43 @@
+.card {
+    right: 0%;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 35%;
+    margin-left: 35%;
+    margin-top: 30px;
+    height: auto;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .container{
+    margin-right: -210px;
+  }
+
+  .update-button{
+    border-radius: 25px;
+  background-color: #25646b;  
+  color: white;  
+  padding: 10px 20px;  
+  margin: 12px 0;  
+  border: none;  
+  cursor: pointer;   
+  opacity: 0.9;  
+  font-size: 20px;
+  outline: none !important;
+  }
+
+  .img-div{
+    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+  }
+
+  .inputClass{
+    position: relative;
+    right: 0;
+  }

@@ -20,7 +20,7 @@ function Login() {
   const setValues = () => {
       registeredUsers.forEach((user:any,index:any) => {
         if(user.UserEmail===email && user.UserPassword===password){
-          dispatch(app_Actions.setLoginUser(user))
+          dispatch(app_Actions.setLoginUser({...user,indexId:index}))
           dispatch(app_Actions.setLoginStatus(true));
            let path = `/home`;
            navigate(path);         
