@@ -1,23 +1,16 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import app_Actions from "../Actions";
+import { loaderService } from "../Services/LoaderService";
 import "../styles/Profile.css";
 
 function Profile() {
   const loginUser: any = useSelector((state: any) => state.User.loginUser);
   const registeredUsers: any = useSelector((state: any) => state.User.registerUser)
-  const userData: any = useSelector((state:any) => state.User)
   const dispatch = useDispatch();
   const [userName, setUserName] = useState(loginUser.UserName);
-  const userNameRef = useRef<HTMLInputElement>(null);
   const [userEmail, setUserEmail] = useState(loginUser.UserEmail);
-  const EmailRef = useRef<HTMLInputElement>(null);
   const [userMobile, setUserMobile] = useState(loginUser.userMobile);
-  const mobileRef = useRef<HTMLInputElement>(null);
-  console.log(loginUser);
-  
-
-  //registerUser
   const updateUserData = () => {
     let updatedLoginUserInfo:any = {
       UserEmail: userEmail,
@@ -25,21 +18,21 @@ function Profile() {
       UserPassword: loginUser.UserPassword,
       userMobile: userMobile,
     }
-    updatedLoginUserInfo['indexId'] = loginUser.indexId
 
-    dispatch(app_Actions.user_Actions.setLoginUser(updatedLoginUserInfo))
-    for(let i=0;i<registeredUsers.length;i++){
-      
-      console.log(registeredUsers[i])
+    for(let i=0;i< registeredUsers.length;i++){
+      if(registeredUsers[i].UserEmail === loginUser.UserEmail){
+        registeredUsers[i] = updatedLoginUserInfo
+        break
+        }
     }
-    // dispatch(app_Actions.user_Actions.setLoginUser(null))
-    // dispatch(app_Actions.user_Actions.setRegisterUser(null))
-    
-    //ToDo: redux update the existing user should be added...
 
-    console.log(registeredUsers)
-    console.log(loginUser)
-    console.log(userData)
+    dispatch(app_Actions.user_Actions.setEditUSer(updatedLoginUserInfo))
+    dispatch(app_Actions.user_Actions.setLoginUser(updatedLoginUserInfo))
+    loaderService.show()
+    setTimeout(() => {
+      loaderService.hide()
+      
+    }, 300);
   }
 
 
@@ -54,7 +47,6 @@ function Profile() {
              className="inputClass"
               type="text"
               value={userName}
-              ref={userNameRef}
               name="userId"
               onChange={(e) => setUserName(e.target.value)}
             ></input>
@@ -66,7 +58,6 @@ function Profile() {
              className="inputClass"
               type="text"
               value={userEmail}
-              ref={EmailRef}
               name="emailId"
               onChange={(e) => setUserEmail(e.target.value)}
             ></input>
@@ -77,12 +68,8 @@ function Profile() {
               className="inputClass"
               type="text"
               value={userMobile}
-              ref={mobileRef}
               name="emailId"
-              onChange={(e) =>{ 
-                userEmail.current.
-                setUserMobile(e.target.value)
-              }}
+              onChange={(e) =>{ setUserMobile(e.target.value)}}
             ></input>
           </div>
           <div></div>
@@ -90,7 +77,7 @@ function Profile() {
 
           
         </div>
-        <a>Change Password</a>
+        <p>Change Password</p>
       </div>
     </>
   );
