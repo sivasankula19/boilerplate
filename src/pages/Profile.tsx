@@ -12,7 +12,6 @@ function Profile() {
   const [userEmail, setUserEmail] = useState(loginUser.UserEmail);
   const [userMobile, setUserMobile] = useState(loginUser.userMobile);
   const updateUserData = () => {
-    debugger
     let updatedLoginUserInfo:any = {
       UserEmail: userEmail,
       UserName: userName,
