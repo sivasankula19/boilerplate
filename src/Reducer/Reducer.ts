@@ -27,6 +27,9 @@ const User = (state: IAppState = initialState, action: any) => {
     case user_Actions.Constants.logOut :{
       return initialState
     }
+    case user_Actions.Constants.editUSer : {
+      return {...state, registerUser:action.payload}
+    }
     default:
       return state;
   }

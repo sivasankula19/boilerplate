@@ -3,6 +3,7 @@ const Constants = {
     loginStatus: 'loginStatus',
     logOut:'logOut',
     loginUser:'loginUser',
+    editUSer:'editUser'
   }
 
   const setLoginStatus = (data: any) => ({
@@ -21,11 +22,15 @@ const Constants = {
     type:Constants.logOut,
     payload:data
   })
-  export default {
+  const setEditUSer = (data:any) => ({
+    type: Constants.editUSer,
+    payload:data,
+  })
+  export default { 
     setLoginStatus,
     setRegisterUser,
     setLoginUser,
     setLogOut,
+    setEditUSer,
     Constants
   }
-  
