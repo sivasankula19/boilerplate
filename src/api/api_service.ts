@@ -1,4 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import _ from '../utils/lodash';
 import { api_urls } from './api_urls';
 
 class APIService {
@@ -72,32 +73,32 @@ class APIService {
     }
 
     getHeadersByType(requestMethod: string, headerType: string, domain: string, customHeaders?: any, payload?: any): any {
-        let data = {};
+        let data:any = {};
         switch (headerType) {
             case this.ContentHeaders.Json: {
-                // data['Content-Type'] = 'application/json';
+                data['Content-Type'] = 'application/json';
                 break;
             }
             case this.ContentHeaders.Plain: {
-                // data['Content-Type'] = 'text/plain';
+                data['Content-Type'] = 'text/plain';
                 break;
             }
             case this.ContentHeaders.FormData: {
-                // data['Content-Type'] = 'multipart/form-data';
+                data['Content-Type'] = 'multipart/form-data';
                 break;
             }
             default:
-                // data['Content-Type'] = 'application/json';
+                data['Content-Type'] = 'application/json';
                 break;
         }
-        // data = _.extend({}, data, customHeaders);
+        data = _.extend({}, data, customHeaders);
         return data;
     }
 
     post = (data: {
         endPoint: string;
         payLoad?: any;
-        domain?: string;
+        domain?: any;
         headerType?: string;
         customHeaders?: any;
         showLoader?: boolean;
@@ -127,7 +128,7 @@ class APIService {
                 timeout: this.axiosOptions.timeout,
                 transformRequest: this.axiosOptions.transformRequest,
                 baseURL: data.domain,
-                // headers: this.getHeadersByType(data.headerType, data.domain, data.customHeaders)
+                headers: this.getHeadersByType(data.headerType, data.domain, data.customHeaders)
             });
 
         } else {
@@ -137,7 +138,7 @@ class APIService {
                 timeout: this.axiosOptions.timeout,
                 transformRequest: this.axiosOptions.transformRequest,
                 baseURL: data.domain,
-                // headers: this.getHeadersByType('post', data.headerType, data.domain, data.customHeaders, data.payLoad)
+                headers: this.getHeadersByType('post', data.headerType, data.domain, data.customHeaders, data.payLoad)
             });
 
         }
@@ -153,7 +154,7 @@ class APIService {
     put = (data: {
         endPoint: string;
         payLoad?: any;
-        domain?: string;
+        domain?: any;
         id?: string;
         headerType?: string;
         customHeaders?: any;
@@ -181,14 +182,14 @@ class APIService {
             timeout: this.axiosOptions.timeout,
             transformRequest: this.axiosOptions.transformRequest,
             baseURL: data.domain,
-            // headers: this.getHeadersByType('put', data.headerType, data.domain, data.customHeaders, data.payLoad)
+            headers: this.getHeadersByType('put', data.headerType, data.domain, data.customHeaders, data.payLoad)
         });
     }
 
     delete = (data: {
         endPoint: string;
         payLoad?: any;
-        domain?: string;
+        domain?: any;
         id?: string;
         headerType?: string;
         customHeaders?: any;
@@ -211,7 +212,7 @@ class APIService {
 
         return axios.delete(data.endPoint, {
             baseURL: data.domain,
-            // headers: this.getHeadersByType('delete', data.headerType, data.domain, data.customHeaders)
+            headers: this.getHeadersByType('delete', data.headerType, data.domain, data.customHeaders)
         });
     }
 
@@ -220,7 +221,7 @@ class APIService {
         domain: string;
         payLoad?: any;
         id?: string;
-        headerType?: string;
+        headerType?: any;
         customHeaders?: any;
         showLoader?: boolean;
         noHeadersRequired?: boolean;
@@ -233,7 +234,7 @@ class APIService {
                 baseURL: data.domain,
                 timeout: this.axiosOptions.timeout,
                 params: data.payLoad,
-                // headers: data.noHeadersRequired ? null : this.getHeadersByType('get', data.headerType, data.domain, data.customHeaders)
+                headers: data.noHeadersRequired ? null : this.getHeadersByType('get', data.headerType, data.domain, data.customHeaders)
             });
         } catch (e) {
             console.error('axios get::', e);
