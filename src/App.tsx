@@ -1,15 +1,21 @@
-import React from 'react';
+import React,{ Suspense } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Route,Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Logout from './pages/Logout';
-import Forgotpassword from './pages/Forgotpassword';
 import { useSelector } from 'react-redux';
-import Profile from './pages/Profile';
 import { GoogleAnalyticsInstance,intialiseAnalytics } from './GoogleAnalytics/GoogleAnalytics';
+
+/** Here we are importing components lazily */
+
+const Home = React.lazy(() => import("./pages/Home"));
+const Login = React.lazy(() => import("./pages/Login"));
+const Register = React.lazy(() => import("./pages/Register"));
+const Logout = React.lazy(() => import("./pages/Logout"));
+const Forgotpassword = React.lazy(() => import("./pages/Forgotpassword"));
+const Profile = React.lazy(() => import("./pages/Profile"));
+
+
+
 
 function App() {
   intialiseAnalytics();
@@ -18,6 +24,7 @@ function App() {
 
   return (
     <>
+    <Suspense fallback={<div className="lazy-load">Loading.....</div>}>
       <Router>
         { loginUser ? <Navbar /> : '' }
         {/* to check working of error boundary comment above line and uncomment below line  */}
@@ -31,6 +38,7 @@ function App() {
           <Route path='/logout' element={<Logout />} />
         </Routes>
       </Router>
+      </Suspense>
     </>
   );
 }
